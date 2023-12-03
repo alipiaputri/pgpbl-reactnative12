@@ -5,12 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Peta ATM</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
-      integrity="sha384-GLhlTQ8iFZtw3TEKGkOzpSbGAtPYF/cWW3IBY6p0M1Y2D5PymUjBSu5d76TEmLk6"
-      crossorigin="anonymous"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
     <style>
       html,
       body,
@@ -20,26 +15,20 @@
         margin: 0;
       }
       /* Gaya Tombol Reload */
+
       .reload-button {
-        padding: 5px 10px;
-        font-size: 14px;
-        background-color: #3498db;
+        background-color: #3081d0;
         color: #fff;
         border: none;
-        border-radius: 3px;
+        border-radius: 50%;
+        padding: 10px;
+        font-size: 20px;
         cursor: pointer;
+        transition: background-color 0.3s ease;
       }
 
       .reload-button:hover {
-        background-color: #2980b9;
-      }
-
-      /* Gaya Kontainer Tombol */
-      .custom-control {
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
+        background-color: #3081d0;
       }
     </style>
   </head>
@@ -58,10 +47,10 @@
       }).addTo(map);
 
       // Export Button
-      var showExport = '<button onclick="loadlayer()" title="Refresh map" class="btn btn-primary"><i class="fas fa-sync"></i> </button>';
+      var showExport = '<button onclick="loadlayer()" title="Refresh map" class="reload-button"><i class="fas fa-sync-alt"></i> </button>';
       var showExportButton = new L.Control({ position: "topright" });
       showExportButton.onAdd = function (map) {
-        this._div = L.DomUtil.create("div", "custom-button");
+        this._div = L.DomUtil.create("div");
         this._div.innerHTML = showExport;
         return this._div;
       };
