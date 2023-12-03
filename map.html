@@ -30,8 +30,7 @@
       }).addTo(map);
 
       // Export Button
-      var showExport = '<button onclick="loadlayer()" title="Refresh map" class="btn btn-primary"><i class="fas fa-sync-alt"></i> </button>';
-
+      var showExport = '<button onclick="loadlayer()" title="Refresh map" class="btn btn-primary"><i class="fas fa-sync"></i> </button>';
       var showExportButton = new L.Control({ position: "topright" });
       showExportButton.onAdd = function (map) {
         this._div = L.DomUtil.create("div", "custom-button");
