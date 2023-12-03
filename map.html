@@ -43,7 +43,7 @@
       function loadlayer() {
         var point = L.geoJson(null, {
           onEachFeature: function (feature, layer) {
-            var popupContent = "<h4>" + feature.properties.nama + "</h4>" + "<p>" + feature.properties.deskripsi + "</p>";
+            var popupContent = "<h4>" + feature.properties.nama + "</h4>" + "<p>" + feature.properties.alamat + "</p>";
             layer.on({
               click: function (e) {
                 point.bindPopup(popupContent);
