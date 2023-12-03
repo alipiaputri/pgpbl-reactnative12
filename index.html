@@ -33,16 +33,16 @@
                   <div class="row">
                     <div class="col-sm">
                       <div class="form-group">
-                        <label for="nama"><strong>Nama Objek</strong></label>
-                        <input type="text" class="form-control text-primary" id="nama" name="nama" placeholder="Nama objek" value="" />
+                        <label for="nama"><strong>Nama ATM</strong></label>
+                        <input type="text" class="form-control text-primary" id="nama" name="nama" placeholder="nama atm" value="" />
                       </div>
                     </div>
                   </div>
                   <div class="row">
                     <div class="col-sm">
                       <div class="form-group">
-                        <label for="deskripsi"><strong>Deskripsi</strong></label>
-                        <textarea type="text" class="form-control text-primary" id="deskripsi" name="deskripsi" placeholder="Deskripsi" rows="3"></textarea>
+                        <label for="alamat"><strong>Alamat</strong></label>
+                        <textarea type="text" class="form-control text-primary" id="alamat" name="alamat" placeholder="alamat" rows="3"></textarea>
                       </div>
                     </div>
                   </div>
@@ -197,7 +197,7 @@
         .addTo(map);
 
       // Submit to google spreadsheet
-      const scriptURL = "https://script.google.com/macros/s/AKfycbyR21f9l0WwgAfFM8Rt2bCSD8QLet3nBdD5HRCfILglx6QoVpUylxAwXo3H4M-iHsqtjw/exec";
+      const scriptURL = "https://script.google.com/macros/s/AKfycbzVxQrQl5bnFXrOn0Xc2Ce9tlREljXkC1DD1A0Vp4x0lNgW4l2_XLw5lWYt-b269Sz_KQ/exec";
       const form = document.forms["submit-to-google-sheet"];
       const btnSimpan = document.querySelector(".btn-simpan");
       const btnLoading = document.querySelector(".btn-loading");
