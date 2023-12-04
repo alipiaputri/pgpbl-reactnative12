@@ -56,8 +56,9 @@
       }
 
       /* Gaya Marker */
-      .money-marker {
+      .atm {
         color: #3081d0; /* Warna untuk ikon  */
+        text-shadow: 0 0 5px white;
         font-size: 24px; /* Ukuran ikon */
       }
     </style>
@@ -96,8 +97,8 @@
           pointToLayer: function (feature, latlng) {
             return L.marker(latlng, {
               icon: L.divIcon({
-                className: "money-marker",
-                html: '<i class="fas fa-landmark"></i>',
+                className: "atm",
+                html: '<i class="fas fa-landmark" ></i>',
                 iconSize: [24, 24], // Sesuaikan ukuran ikon
                 iconAnchor: [12, 24], // Sesuaikan posisi ikon
               }),
