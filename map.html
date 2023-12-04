@@ -69,6 +69,7 @@
       <h1>ATM Nearby</h1>
     </header>
     <div id="map"></div>
+
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="https://unpkg.com/leaflet.awesome-markers/dist/leaflet.awesome-markers.js"></script>
@@ -77,10 +78,41 @@
       // yogyakarta
       var map = L.map("map").setView([-7.765593857777918, 110.37887576611304], 13);
 
-      // basemap
-      var basemap = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      // Basemap OpenStreetMap
+      var basemapOSM = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         maxZoom: 18,
       }).addTo(map);
+
+      // Basemap ESRI Satellit
+      var basemapESRISatellite = L.tileLayer("https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", {
+        maxZoom: 18,
+      });
+
+      // Basemap OpenTopoMap (Contoh basemap lainnya)
+      var basemapOpenTopoMap = L.tileLayer("https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png", {
+        attribution: "Open Topo Map",
+      });
+
+      // Control Layers
+      var baseMaps = {
+        OpenStreetMap: basemapOSM,
+        ESRISatellite: basemapESRISatellite,
+        OpenTopoMap: basemapOpenTopoMap,
+      };
+
+      L.control.layers(baseMaps).addTo(map);
+
+      // Fungsi untuk mengganti basemap
+      function changeBasemap(basemap) {
+        if (basemap === "osm") {
+          map.removeLayer(basemapStamen);
+          basemapOSM.addTo(map);
+        } else if (basemap === "stamen") {
+          map.removeLayer(basemapOSM);
+          basemapStamen.addTo(map);
+        }
+        // Tambahkan opsi basemap lainnya jika diperlukan
+      }
 
       // Export Button
       var showExport = '<button onclick="loadlayer()" title="Refresh map" class="reload-button"><i class="fas fa-sync-alt"></i> </button>';
